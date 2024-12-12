@@ -1,0 +1,27 @@
+import qrcode # Import qrcode module from python library
+from PIL import Image # Importing image module from pillow
+
+# Using a varieble to store version, error_correction, error_correction_level, box_size or border 
+qr  = qrcode.QRCode(version=1, error_correction=qrcode.constants.ERROR_CORRECT_H, box_size=20, border=4)
+
+
+# Here we are asking for data to genrate qrcode
+qr.add_data(input("Enter data to genrate QrCode:- "))
+
+# Here we are asking for file name with extension (.png)
+qr_name = input("Enter the file name with extension (.png):- ")
+
+# Asking from user to enter Qr_code color
+qr_Fill_color = input("Enter QR_code color:- ")
+
+# Asking from user to enter background color
+qr_Background_color = input("Enter background color:- ")
+
+# Creating qrcode with fit size
+qr.make(fit=True)
+
+# We are declaring the color of qrcode
+img = qr.make_image(fill_color=qr_Fill_color, back_color=qr_Background_color)
+
+# Saving file with hte given name
+img.save(qr_name)
