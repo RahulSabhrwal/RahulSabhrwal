@@ -1,0 +1,49 @@
+Email = input("Enter your Email:- ") # Example: g@g.in
+
+# Initialize error flags
+j = 0  # To check if space is present
+k = 0  # To check if an uppercase letter is found
+l = 0  # To check if an invalid character is found
+
+# Check if the email length is at least 6 characters
+if len(Email) >= 6:
+
+    # Check if the first character is alphabetic
+    if Email[0].isalpha:
+
+       # Check if there is exactly one '@' symbol in the email
+       if ("@" in Email) and (Email.count("@") == 1):
+
+            # Check if the second-last or third-last character is a dot '.'
+            if (Email[-4] == ".") or (Email[-3] == "."):
+                
+                # Loop through each character to validate
+                for i in Email:
+                    if  i.isspace(): # Check for space
+                        j = 1
+                    elif i.isalpha(): # Check if it's an alphabetic character
+                        if i.isupper(): # Check for uppercase letters
+                            k = 1
+                    elif i.isdigit(): # Allow digits
+                        continue 
+                    elif i == "_" or i == "." or i == "@": # Allow _, @, .
+                        continue
+                    else: # Invalid character
+                        l = 1
+
+                # Output results based on error flags
+                if k == 1 or j == 1 or l == 1:
+                    print(f"Wrong Email! {Email} errorcode ##373hgf5f5$32h")
+                else:
+                    print(f"Correct Email! {Email}")
+            else:
+                print(f"Wrong Email! {Email} errorcode ##193hdfhs&djfd")
+
+       else:
+           print(f"Wrong Email! {Email} errorcode ##2354fji934k")
+
+    else:
+        print(f"Wrong Email! {Email} errorcode ##796hhhg7767c")
+
+else:
+    print(f"Wrong Email! {Email} errorcode ##184ffefej8")
