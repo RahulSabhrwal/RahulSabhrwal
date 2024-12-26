@@ -1,0 +1,39 @@
+import smtplib as s
+
+# Establish a connection to the Gmail SMTP server who runs on port 587
+ob = s.SMTP('smtp.gmail.com', 587)
+
+# Greet the server
+ob.ehlo()
+
+# Start TLS encryption for security
+ob.starttls()
+
+# Login to your Gmail account
+sendermailadd = input("Enter your Email here: ")
+password = input("Enter your password here: ")
+ob.login(sendermailadd, password)
+
+# Get subject and body for the email
+subject = input("Enter your Subject: ")
+body = input("Enter your Body here: ")
+
+# Format the email message with the correct subject (capital 'S')
+message = "Subject: {}\n\n{}".format(subject, body)
+
+# Ask how many emails you want to send
+mails = int(input("Enter how many emails you want to send: "))
+
+# Loop over the number of emails to send
+for i in range(mails):
+    # Get the recipient's email address
+    receiver_email = input(f"Enter recipient {i+1} email address: ")
+
+    # Send the email
+    ob.sendmail(sendermailadd, receiver_email, message)
+
+# Print a message once emails are sent
+print("Emails sent successfully!")
+
+# Quit the SMTP session
+ob.quit()
