@@ -1,0 +1,66 @@
+from time import time
+import random as r
+
+# Function to calculate typing speed (Words per minute)
+def typing_speed(time_s, time_e, user_input):
+    time_delay = time_e - time_s
+    # Calculate words per minute (WPM) using 5 characters as a word
+    words = len(user_input) / 5
+    wpm = (words / time_delay) * 60  # Convert to words per minute
+    return round(wpm, 2)
+
+# Function to calculate typing errors
+def error_detection(para, user_input):
+    # Find the minimum length of both strings
+    min_length = min(len(para), len(user_input))
+    
+    # Count the mismatches up to the shortest length
+    error_count = sum(1 for i in range(min_length) if para[i] != user_input[i])
+    
+    # Add the difference in lengths to account for extra characters
+    error_count += abs(len(para) - len(user_input))
+    
+    # Calculate accuracy (correct characters divided by total characters)
+    accuracy = 100 - (error_count / len(para)) * 100
+    
+    return error_count, round(accuracy, 2)
+
+# Function to display the typing test
+def typing_test():
+    # Sample paragraphs
+    string = [
+        "A paragraph is a self-contained unit of discourse in writing dealing with a particular point or idea.",
+        "In the quiet, dimly lit library, the old wooden shelves creaked under the weight of centuries of knowledge. Dust particles danced in the slivers of sunlight that filtered through the high windows, creating an almost magical atmosphere.",
+        "The scent of aged paper and leather-bound books filled the air, a reminder of the countless stories and discoveries preserved on these shelves.",
+        "Despite the centuries of history surrounding it, the library remained timeless, a sanctuary for those seeking wisdom and escape from the hustle and bustle of modern life.",
+        "The rows of books seemed to hold secrets waiting to be uncovered, their pages filled with the thoughts and ideas of great minds long passed. As the clock on the wall ticked away.",
+        "The sound of the librarian’s footsteps echoed through the aisles, a soft rhythm that blended with the occasional rustle of pages being turned.",
+        "Visitors came and went, some with a sense of purpose, others merely wandering, drawn by the allure of knowledge that permeated every corner of the room.",
+        "One could often hear hushed whispers, as if the books themselves were engaging in quiet conversations, sharing their wisdom with those who took the time to listen.",
+        "On one such day, a young woman sat at a table near the back, her eyes scanning the pages of an old, worn novel. Her fingers traced the lines of text as if the words themselves held the answers to questions she had been pondering for years.",
+        "In that moment, the library seemed to come alive, each book and each visitor contributing to the living, breathing history of knowledge that would continue to evolve for generations to come."
+    ]
+
+    # Select a random string from the list
+    random_string = r.choice(string)
+
+    print("************* Typing Speed Calculator **************")
+    print(random_string)
+    print("\n")
+
+    # Start the timer, ask for input, and calculate the speed and error
+    time_start = time()
+    user_input = input("Enter the paragraph: ")
+    time_end = time()
+
+    # Calculate typing speed and errors
+    speed = typing_speed(time_start, time_end, user_input)
+    errors, accuracy = error_detection(random_string, user_input)
+
+    # Display the results
+    print(f"\nTyping Speed: {speed} WPM")
+    print(f"Typing Errors: {errors}")
+    print(f"Accuracy: {accuracy}%")
+
+# Run the typing test
+typing_test()
