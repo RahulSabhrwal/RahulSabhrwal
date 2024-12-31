@@ -1,0 +1,34 @@
+import pywhatkit as pwk
+import os
+
+# Input from the user
+user_input_text = input("Enter text here: ")
+
+# Provide the full file path to save the image (ensure you include the file name in the path as well)
+path = input("Enter directory path to save the file (e.g., 'C:/Users/YourName/Desktop/'): ")
+
+# Ensure path ends with a separator
+if not path.endswith(('/','\\')):
+    path += '/'
+
+# Input the file name (without extension, as it will automatically add '.png')
+file_name = input("Input file name (e.g., 'handwritten_text'): ")
+
+# Choose color for the text (e.g., 'black', 'blue', etc.)
+color = input("Enter color for the handwriting (e.g., 'black'): ")
+
+# Create the file path with the name and extension
+full_path = os.path.join(path, f"{file_name}.png")
+
+# Validate if the directory exists
+if not os.path.exists(path):
+    print(f"Error: The directory {path} does not exist.")
+else:
+    try:
+        # Use the pywhatkit method to convert text to handwriting and save it as an image
+        pwk.text_to_handwriting(user_input_text, full_path, color)
+        
+        # Confirm the file creation
+        print("File creation successful....")
+    except Exception as e:
+        print(f"An error occurred: {e}")
