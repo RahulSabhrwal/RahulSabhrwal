@@ -1,0 +1,16 @@
+import pywhatkit as pwk
+
+# Taking user inputs
+mob_number = input("Enter mobile number (with country code, e.g., +1234567890): ")
+
+msg = input("Enter message here: ")
+
+# Time input (in 24-hour format)
+time_in_hours = int(input("Enter time in hours (24-hour format): "))
+time_in_minutes = int(input("Enter time in minutes(time index will be set to 0 to 59): "))
+
+
+# Send WhatsApp message
+pwk.sendwhatmsg(mob_number, msg, time_in_hours, time_in_minutes)
+
+print("Message sent successfully...")
