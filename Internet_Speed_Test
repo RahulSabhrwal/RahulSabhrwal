@@ -1,0 +1,45 @@
+from tkinter import *
+import speedtest
+
+def speedcheck():
+    internet_speed = speedtest.Speedtest()
+    internet_speed.get_servers()
+    down = str(round(internet_speed.download() / (10**6), 3)) + " Mbps"
+    up = str(round(internet_speed.upload() / (10**6), 3)) + " Mbps"
+
+    lab_down.config(text=down)
+    lab_up.config(text=up)
+
+internet_speed = Tk()
+
+internet_speed.title('Internet Speed Tester')
+
+internet_speed.geometry("400x500")
+
+internet_speed.resizable(0, 0)
+
+# Title label
+lab_title = Label(internet_speed, text='Internet Speed Tester', font=("Roboto", 25, "bold"))
+lab_title.place(x=15, y=40, height=30, width=380)
+
+# Download speed label
+lab_download = Label(internet_speed, text='Download Speed', font=("Roboto", 25, "bold"))
+lab_download.place(x=15, y=130, height=30, width=380)
+
+# Label for displaying download speed
+lab_down = Label(internet_speed, text='00', font=("Roboto", 25, "bold"))
+lab_down.place(x=15, y=200, height=30, width=380)
+
+# Upload speed label
+lab_upload = Label(internet_speed, text='Upload Speed', font=("Roboto", 25, "bold"))
+lab_upload.place(x=15, y=290, height=30, width=380)
+
+# Label for displaying upload speed
+lab_up = Label(internet_speed, text='00', font=("Roboto", 25, "bold"))
+lab_up.place(x=15, y=360, height=30, width=380)
+
+# Button to trigger speed check
+button = Button(internet_speed, text="Check Speed", relief=RAISED, font=("Roboto", 15, "italic", "bold"), bg="black", fg="white", command=speedcheck)
+button.place(x=15, y=450, height=30, width=380)
+
+internet_speed.mainloop()
