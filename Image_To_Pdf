@@ -1,0 +1,32 @@
+from PIL import Image
+from fpdf import FPDF
+
+# Open the image
+image_path = input("Enter your Input_image path here:- ")
+image = Image.open(image_path)
+
+# Convert image to RGB if necessary
+image = image.convert("RGB")
+
+# Create a PDF instance
+pdf = FPDF()
+pdf.add_page()
+
+# Get image dimensions (for scaling to fit PDF page)
+width, height = image.size
+pdf_width = 210  # A4 size width in mm
+pdf_height = 297  # A4 size height in mm
+
+# Calculate aspect ratio to maintain image proportions
+aspect_ratio = width / height
+new_width = pdf_width
+new_height = new_width / aspect_ratio
+
+# Add image to PDF
+pdf.image(image_path, x=10, y=10, w=new_width, h=new_height)
+
+# Save PDF
+output_pdf_path = input("Enter your Output_image path here:- ")
+pdf.output(output_pdf_path)
+
+print(f"PDF saved at {output_pdf_path}")
