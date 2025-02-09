@@ -1,0 +1,23 @@
+import pikepdf
+
+def protect_pdf(input_file_path, output_file_path, password):
+    # Open the pdf file you want to protect
+    with pikepdf.open(input_file_path) as Pdf:
+    # Save it with a password (encryption)
+    # Here, both the owner and user password are the same.
+        Pdf.save(output_file_path, encryption=pikepdf.Encryption(owner=password, user=password))
+    
+
+# Example usage:
+input_pdf = input("Enter the Input_file path:- ") # This is the original PDF file
+password = input("Enter your password:- ")  # The password you'll set for the file
+output_pdf = input("Enter the Output_file path:- ")  # This will be your new protected file
+
+# calling function here
+protect_pdf(input_pdf,output_pdf,password)
+
+print("Encryption Logged Successfully..!")
+
+
+# Note: after specifying the path of the of file pls give the name of the file too 
+# for instance:- path\example.pdf
