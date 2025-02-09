@@ -1,0 +1,41 @@
+import cv2
+import pyautogui
+from win32api import GetSystemMetrics
+import numpy as np
+import time
+
+
+# Get screen dimensions
+width = GetSystemMetrics(0)
+height = GetSystemMetrics(1)
+
+dimension = (width, height)
+
+# Get file name input, assuming user wants an .avi extension for the video file
+file_name = input("Enter your file name (e.g., 'output.avi'):- ")
+
+# Set the video format and codec
+format = cv2.VideoWriter_fourcc(*"XVID")
+
+# Initialize the VideoWriter object
+output = cv2.VideoWriter(file_name, format, 30.0, dimension)
+
+# Get the duration in seconds
+current_time = time.time()
+duration = int(input("Enter the time to record video (in seconds):- "))
+end_time = current_time + duration
+
+# Start the screen capture and recording loop
+while True:
+    image = pyautogui.screenshot()
+    frame = np.array(image)
+    frame_color = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    output.write(frame_color)
+    c_time = time.time()
+    if c_time > end_time:
+        break
+
+# Release the VideoWriter after recording is done
+output.release()
+
+print("--- END ---")
