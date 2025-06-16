@@ -1,0 +1,84 @@
+.flex{
+    display: flex;
+}
+.justify-center{
+    justify-content: center;
+}
+.item-center{
+    align-items: center;
+}
+
+.justify-end{
+    justify-content: flex-start;
+}
+.justify-start{
+    justify-content: flex-start;
+}
+.justify-space-between{
+    justify-content: space-between;
+}
+.justify-space-around{
+    justify-content: space-around;
+}
+.justify-space-evenly{
+    justify-content: space-evenly;
+}
+.bg-black{
+    background-color: black;
+    color: white;
+}
+.invert{
+    filter: invert(1);
+}
+.bg-grey{
+    background-color: #1f1f1f;
+    color: white;
+}
+.radius{
+    border-radius: 7px;
+}
+.p-1{
+    padding: 10px;
+}
+.display-inline{
+    display: inline;
+}
+.gap{
+    gap: 10px;
+}
+.wrap{
+    flex-wrap: wrap;
+}
+
+/* For Webkit-based browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e; /* dark background */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #444; /* thumb color */
+  border-radius: 10px;
+  border: 3px solid #1e1e1e; /* matches the track for a smooth look */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #666;
+}
+
+/* Firefox (uses scrollbar-color and scrollbar-width) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #444 #1e1e1e;
+}
+
+.color{
+    color: black;
+}
+
+.gap-40px{
+    gap: 40px;
+}

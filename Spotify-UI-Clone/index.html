@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utility.css">
+</head>
+
+<body>
+    <div class="main flex bg-black">
+        <div class="side-bar radius">
+            <div class="close">
+                <img class="invert" src="assets/img/close.svg" alt="">
+            </div>
+            <div class="logo-home-search bg-grey radius">
+                <div class="logo"><img class="invert" src="assets/img/logo.svg" alt="Logo"></div>
+                <ul>
+
+                    <li><img class="invert" src="assets/img/home.svg" alt="Logo">Home</li>
+                    <li><img class="invert" src="assets/img/search.svg" alt="Logo">Search</li>
+                </ul>
+            </div>
+            <div class="sidebar-bottom-pannel bg-grey radius p-1">
+                <div class="library flex item-center ">
+                    <img class="invert" src="assets/img/playlist.svg" style="height: 24px;" alt="playlist">
+                    <span id="playlist-logo-text">Your playlist</span>
+                </div>
+                <div class="song-list">
+                    <ul>
+
+                    </ul>
+                </div>
+                <div class="side-bar-footer">
+                    <div><a href="https://www.spotify.com/jp/legal/"><span>Legal</span></a></div>
+                    <div><a href="https://www.spotify.com/jp/privacy/"><span>Privacy Center</span></a></div>
+                    <div><a href="https://www.spotify.com/jp/legal/privacy-policy/"><span>Privacy Policy</span></a>
+                    </div>
+                    <div><a href="https://www.spotify.com/jp/legal/cookies-policy/"><span>Cookies</span></a></div>
+                    <div><a href="https://www.spotify.com/jp/legal/privacy-policy/#s3"><span>About Ads</span></a></div>
+                    <div><a href="https://www.spotify.com/jp/accessibility/"><span>Accessibility</span></a></div>
+                </div>
+            </div>
+        </div>
+        <div class="bigger-side-bar radius">
+            <div class="header flex justify-space-between radius">
+                <div class="nav">
+                <div class="hamburger-container">
+                        <img class="hamburger invert" width="40px" src="assets/img/hamburger.svg" alt="">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M15 6L9.70711 11.2929C9.37377 11.6262 9.20711 11.7929 9.20711 12C9.20711 12.2071 9.37377 12.3738 9.70711 12.7071L15 18"
+                            stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M9 18L14.2929 12.7071C14.6262 12.3738 14.7929 12.2071 14.7929 12C14.7929 11.7929 14.6262 11.6262 14.2929 11.2929L9 6"
+                            stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    </div>
+                </div>
+                <div class="button flex">
+                    <button class="signupbtn">Sign up</button>
+                    <button class="loginbtn">Log in</button>
+                </div>
+            </div>  
+            <div class="spotify-playlists">
+                <h1>Spotify Playlists</h1>
+                <div class="cardcontainer flex ga p wrap"></div>
+            </div>
+            <div class="play-bar ">
+                <div class="seek-bar">
+                    <div class="circle">
+
+                    </div>
+                </div>
+                <div class="abovebar flex justify-space-between ">
+                    <div class="songinfo color">
+
+                    </div>
+                    <div class="song-buttons flex justify-center item-center">
+                        <img width="35" id="previous" src="assets/img/prevsong.svg" alt="Previous-song">
+                        <img width="35" id="play" src="assets/img/play.svg" alt="Play-song">
+                        <img width="35" id="next" src="assets/img/nextsong.svg" alt="Next-song">
+                    </div>
+                    <div class="settle">
+                    <div class="song-time color">
+
+                    </div>
+                    <div class="volume">
+                        <img src="volume.svg" alt="">
+                        <input type="range" name="volume" id="">
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
